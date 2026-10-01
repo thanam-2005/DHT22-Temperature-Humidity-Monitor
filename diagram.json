@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Suchithra S",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -5.33, "left": -135.33, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 186.41,
+      "left": -13.45,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 6.4,
+      "left": 111.2,
+      "attrs": { "pins": "i2c", "background": "blue", "color": "white" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D4", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-57.04", "v104.68", "h-34.2" ] ],
+    [ "lcd1:VCC", "esp:3V3", "red", [ "h-31.63", "v95.59" ] ],
+    [ "lcd1:SDA", "esp:D21", "magenta", [ "h0" ] ],
+    [ "lcd1:SCL", "esp:D22", "gold", [ "h-64.82", "v-38.54", "h-26.42" ] ]
+  ],
+  "dependencies": {}
+}
